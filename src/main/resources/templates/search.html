@@ -20,7 +20,7 @@
                         name="searchType"
                         th:id="${column.key}"
                         th:value="${column.key}"
-                        th:checked="${column.key == 'all'}"/>
+                        th:checked="${column.key == searchType}"/>
                 <label th:for="${column.key}" th:text="${column.value}"></label>
             </span>
 
@@ -44,13 +44,14 @@
             <tr><td>Name</td>
                 <td th:text = "${job.name}"></td> </tr>
             <tr><td>Employer</td>
-                <td th:text = "${job.employer}"></td> </tr>
+
+                <td > <a th:href="@{/search/results(searchType=all,searchTerm=${job.employer})}" th:text="${job.employer}"></a></td> </tr>
             <tr><td>Location</td>
-                <td th:text = "${job.location}"></td> </tr>
+                <td ><a th:href="@{/search/results(searchType=all,searchTerm=${job.location})}" th:text="${job.location}"></a></td> </tr>
             <tr><td>Position Type</td>
-                <td th:text = "${job.positionType}"></td> </tr>
+                <td ><a th:href="@{/search/results(searchType=all,searchTerm=${job.positionType})}" th:text="${job.positionType}"></a></td> </tr>
             <tr><td>Skill</td>
-                <td th:text = "${job.coreCompetency}"></td> </tr>
+                <td ><a th:href="@{/search/results(searchType=all,searchTerm=${job.coreCompetency})}" th:text="${job.coreCompetency}"></a></td> </tr>
 
         </table>
     </th:block>
